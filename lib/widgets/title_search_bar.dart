@@ -14,21 +14,16 @@ class TitleSearchBar extends StatelessWidget {
       ),
     );
 
-    return const Padding(
-      padding: EdgeInsets.only(top: 10),
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
       child: Row(
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 15, right: 20),
-            child: Text(
-              "Shoes\nCollection",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 35,
-              ),
-            ),
+            padding: const EdgeInsets.only(left: 15, right: 20),
+            child: Text("Shoes\nCollection",
+                style: Theme.of(context).textTheme.titleLarge),
           ),
-          Expanded(
+          const Expanded(
             child: TextField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(

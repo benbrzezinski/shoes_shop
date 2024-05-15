@@ -1,3 +1,5 @@
+const sizes = [36, 38, 40, 42, 44, 46, 48];
+
 const shoes = [
   {
     'id': 'b0db9c51224a',
@@ -5,7 +7,7 @@ const shoes = [
     'price': 144.52,
     'imageUrl': 'assets/images/shoes_1.png',
     'company': 'Nike',
-    'sizes': [38, 40, 42, 44],
+    'sizes': sizes,
   },
   {
     'id': 'a876b96811bf',
@@ -13,15 +15,15 @@ const shoes = [
     'price': 120.12,
     'imageUrl': 'assets/images/shoes_2.png',
     'company': 'Adidas',
-    'sizes': [38, 40, 42],
+    'sizes': sizes,
   },
   {
     'id': 'd6f593059e14',
-    'title': 'Puma Women\'s Shoes',
+    'title': 'Women\'s Puma Shoes',
     'price': 128.95,
     'imageUrl': 'assets/images/shoes_3.png',
     'company': 'Puma',
-    'sizes': [36, 38, 40, 42],
+    'sizes': sizes,
   },
   {
     'id': '9c344333cad2',
@@ -29,7 +31,7 @@ const shoes = [
     'price': 220.69,
     'imageUrl': 'assets/images/shoes_4.png',
     'company': 'Nike',
-    'sizes': [40, 42, 44, 46],
+    'sizes': sizes,
   }
 ];
 

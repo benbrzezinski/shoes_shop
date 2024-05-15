@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_shop/widgets/title_search_bar.dart';
 import 'package:shoes_shop/widgets/list_of_filters.dart';
+import 'package:shoes_shop/widgets/list_of_shoes.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -21,7 +22,11 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: columnGap,
               ),
-              ListOfFilters()
+              ListOfFilters(),
+              SizedBox(
+                height: columnGap,
+              ),
+              ListOfShoes()
             ],
           ),
         ),
