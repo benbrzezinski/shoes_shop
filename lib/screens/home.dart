@@ -10,25 +10,23 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     const double columnGap = 30;
 
-    return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        child: const SafeArea(
-          child: Column(
-            children: [
-              TitleSearchBar(),
-              SizedBox(
-                height: columnGap,
-              ),
-              ListOfFilters(),
-              SizedBox(
-                height: columnGap,
-              ),
-              ListOfShoes()
-            ],
-          ),
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: const SafeArea(
+        child: Column(
+          children: [
+            TitleSearchBar(),
+            SizedBox(
+              height: columnGap,
+            ),
+            ListOfFilters(),
+            SizedBox(
+              height: columnGap,
+            ),
+            ListOfShoes()
+          ],
         ),
       ),
     );

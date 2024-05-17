@@ -28,7 +28,10 @@ class TitleSearchBar extends StatelessWidget {
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                   hintText: "Search",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    semanticLabel: "magnifier",
+                  ),
                   border: border,
                   enabledBorder: border,
                   focusedBorder: border,

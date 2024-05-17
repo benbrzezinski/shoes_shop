@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_shop/screens/home.dart';
+import 'package:shoes_shop/screens/shared.dart';
 
 void main() {
   runApp(const App());
@@ -36,16 +36,16 @@ class App extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        inputDecorationTheme: const InputDecorationTheme(
-          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
-        ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(fontSize: 20, color: Colors.black),
           centerTitle: true,
         ),
+        inputDecorationTheme: const InputDecorationTheme(
+          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
+        ),
       ),
-      home: const Home(),
+      home: const Shared(),
     );
   }
 }

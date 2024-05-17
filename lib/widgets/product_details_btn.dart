@@ -6,7 +6,7 @@ class ProductDetailsBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(double.infinity, 50),
