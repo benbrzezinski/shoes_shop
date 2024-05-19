@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_shop/widgets/filter_item.dart';
 
-class ListOfFilters extends StatefulWidget {
-  const ListOfFilters({super.key});
+class ListOfFilters extends StatelessWidget {
+  const ListOfFilters(
+      {super.key,
+      required this.filters,
+      required this.selectedFilter,
+      required this.setSelectedFilter});
 
-  @override
-  State<ListOfFilters> createState() => _ListOfFiltersState();
-}
-
-class _ListOfFiltersState extends State<ListOfFilters> {
-  final filters = ["All", "Adidas", "Nike", "Puma"];
-  late String selectedFilter;
-
-  void setSelectedFilter(String filter) {
-    setState(() {
-      selectedFilter = filter;
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    selectedFilter = filters[0];
-  }
+  final List<String> filters;
+  final String selectedFilter;
+  final void Function(String) setSelectedFilter;
 
   @override
   Widget build(BuildContext context) {

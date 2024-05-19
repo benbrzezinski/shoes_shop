@@ -1,6 +1,6 @@
 const sizes = [36, 38, 40, 42, 44, 46, 48];
 
-const shoes = [
+const products = [
   {
     'id': 'b0db9c51224a',
     'title': 'Men\'s Nike Shoes',

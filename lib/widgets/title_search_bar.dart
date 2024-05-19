@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TitleSearchBar extends StatelessWidget {
-  const TitleSearchBar({super.key});
+  const TitleSearchBar({super.key, required this.setSearchBarValue});
+
+  final void Function(String) setSearchBarValue;
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +22,28 @@ class TitleSearchBar extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 20),
-            child: Text("Shoes\nCollection",
-                style: Theme.of(context).textTheme.titleLarge),
+            child: Text(
+              "Shoes\nCollection",
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
-          const Expanded(
+          Expanded(
             child: TextField(
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                  hintText: "Search",
-                  prefixIcon: Icon(
-                    Icons.search,
-                    semanticLabel: "magnifier",
-                  ),
-                  border: border,
-                  enabledBorder: border,
-                  focusedBorder: border,
-                  contentPadding: EdgeInsets.all(15)),
+              decoration: const InputDecoration(
+                hintText: "Search",
+                prefixIcon: Icon(
+                  Icons.search,
+                  semanticLabel: "magnifier",
+                ),
+                border: border,
+                enabledBorder: border,
+                focusedBorder: border,
+                contentPadding: EdgeInsets.all(15),
+              ),
+              onChanged: (value) {
+                setSearchBarValue(value);
+              },
             ),
           )
         ],

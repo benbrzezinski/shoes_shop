@@ -21,6 +21,12 @@ class _SharedState extends State<Shared> {
     currentPage = widget.initialPage ?? 0;
   }
 
+  void setCurrentPage(int value) {
+    setState(() {
+      currentPage = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +56,7 @@ class _SharedState extends State<Shared> {
         unselectedFontSize: 0,
         currentIndex: currentPage,
         onTap: (value) {
-          setState(() {
-            currentPage = value;
-          });
+          setCurrentPage(value);
         },
       ),
     );

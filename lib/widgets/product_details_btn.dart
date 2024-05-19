@@ -10,7 +10,7 @@ class ProductDetailsBtn extends StatelessWidget {
   final Map<String, Object> product;
   final int selectedSize;
 
-  bool isInCart(BuildContext context) {
+  bool isProductInCart(BuildContext context) {
     final i = context
         .watch<CartProvider>()
         .cart
@@ -73,7 +73,7 @@ class ProductDetailsBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: isInCart(context)
+      child: isProductInCart(context)
           ? ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
