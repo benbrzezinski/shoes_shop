@@ -3,7 +3,9 @@ import 'package:shoes_shop/screens/home.dart';
 import 'package:shoes_shop/screens/cart.dart';
 
 class Shared extends StatefulWidget {
-  const Shared({super.key});
+  const Shared({super.key, this.initialPage});
+
+  final int? initialPage;
 
   @override
   State<Shared> createState() => _SharedState();
@@ -11,7 +13,13 @@ class Shared extends StatefulWidget {
 
 class _SharedState extends State<Shared> {
   final pages = const [Home(), Cart()];
-  int currentPage = 0;
+  late int currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    currentPage = widget.initialPage ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {

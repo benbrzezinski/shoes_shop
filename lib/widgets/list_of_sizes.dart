@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ListOfSizes extends StatefulWidget {
-  const ListOfSizes({super.key, required this.sizes});
+class ListOfSizes extends StatelessWidget {
+  const ListOfSizes(
+      {super.key,
+      required this.sizes,
+      required this.selectedSize,
+      required this.setSelectedSize});
 
   final List<int> sizes;
-
-  @override
-  State<ListOfSizes> createState() => _ListOfSizesState();
-}
-
-class _ListOfSizesState extends State<ListOfSizes> {
-  int selectedSize = 0;
+  final int selectedSize;
+  final void Function(int) setSelectedSize;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +18,15 @@ class _ListOfSizesState extends State<ListOfSizes> {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           clipBehavior: Clip.antiAlias,
-          itemCount: widget.sizes.length,
+          itemCount: sizes.length,
           itemBuilder: (context, i) {
-            final size = widget.sizes[i];
+            final size = sizes[i];
 
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
               child: GestureDetector(
                 onTap: () {
-                  setState(() {
-                    selectedSize = size;
-                  });
+                  setSelectedSize(size);
                 },
                 child: Chip(
                   label: Text("$size"),

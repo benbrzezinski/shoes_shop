@@ -34,24 +34,3 @@ const shoes = [
     'sizes': sizes,
   }
 ];
-
-const cart = [
-  {
-    'id': '9c344333cad2',
-    'title': 'Jordan Nike Shoes',
-    'price': 220.69,
-    'imageUrl': 'assets/images/shoes_4.png',
-    'company': 'Nike',
-    'sizes': sizes,
-    'size': 42,
-  },
-  {
-    'id': 'd6f593059e14',
-    'title': 'Women\'s Puma Shoes',
-    'price': 128.95,
-    'imageUrl': 'assets/images/shoes_3.png',
-    'company': 'Puma',
-    'sizes': sizes,
-    'size': 38,
-  },
-];

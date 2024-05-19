@@ -5,10 +5,30 @@ import 'package:shoes_shop/widgets/product_details_price.dart';
 import 'package:shoes_shop/widgets/list_of_sizes.dart';
 import 'package:shoes_shop/widgets/product_details_btn.dart';
 
-class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key, required this.product});
+class ProductDetails extends StatefulWidget {
+  const ProductDetails({super.key, required this.product, this.size});
 
   final Map<String, Object> product;
+  final int? size;
+
+  @override
+  State<ProductDetails> createState() => _ProductDetailsState();
+}
+
+class _ProductDetailsState extends State<ProductDetails> {
+  late int selectedSize;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedSize = widget.size ?? 0;
+  }
+
+  void setSelectedSize(int size) {
+    setState(() {
+      selectedSize = size;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +38,9 @@ class ProductDetails extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ProductDetailsTitle(title: product["title"] as String),
+          ProductDetailsTitle(title: widget.product["title"] as String),
           const Spacer(),
-          ProductDetailsImg(imageUrl: product["imageUrl"] as String),
+          ProductDetailsImg(imageUrl: widget.product["imageUrl"] as String),
           const Spacer(),
           Container(
             height: 250,
@@ -35,9 +55,16 @@ class ProductDetails extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ProductDetailsPrice(price: product["price"] as double),
-                ListOfSizes(sizes: product["sizes"] as List<int>),
-                const ProductDetailsBtn()
+                ProductDetailsPrice(price: widget.product["price"] as double),
+                ListOfSizes(
+                  sizes: widget.product["sizes"] as List<int>,
+                  selectedSize: selectedSize,
+                  setSelectedSize: setSelectedSize,
+                ),
+                ProductDetailsBtn(
+                  product: widget.product,
+                  selectedSize: selectedSize,
+                )
               ],
             ),
           )

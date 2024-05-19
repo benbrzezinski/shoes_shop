@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_shop/providers/cart.dart';
 import 'package:shoes_shop/screens/product_details.dart';
 
 class CartItem extends StatelessWidget {
@@ -17,9 +19,65 @@ class CartItem extends StatelessWidget {
         cartItem["title"] as String,
         style: Theme.of(context).textTheme.titleSmall,
       ),
-      subtitle: Text("Size: ${cartItem["size"]}"),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Price: \$${cartItem["price"]}"),
+          Text("Size: ${cartItem["size"]}")
+        ],
+      ),
       trailing: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: const Text(
+                    "Delete product",
+                    textAlign: TextAlign.center,
+                  ),
+                  titleTextStyle: Theme.of(context).textTheme.titleMedium,
+                  content: const Text(
+                    "Are you sure you want to remove this product from your cart?",
+                    textAlign: TextAlign.center,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                      child: const Text(
+                        "No",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.read<CartProvider>().removeFromCart(cartItem);
+                        Navigator.of(context).pop();
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.red,
+                      ),
+                      child: const Text(
+                        "Yes",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                  actionsAlignment: MainAxisAlignment.center,
+                );
+              });
+        },
         icon: const Icon(
           Icons.delete,
           size: 30,
@@ -31,7 +89,10 @@ class CartItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) => ProductDetails(product: cartItem),
+            builder: (context) => ProductDetails(
+              product: cartItem,
+              size: cartItem["size"] as int,
+            ),
           ),
         );
       },
