@@ -13,30 +13,43 @@ class ListOfSizes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 98,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          clipBehavior: Clip.antiAlias,
-          itemCount: sizes.length,
-          itemBuilder: (context, i) {
-            final size = sizes[i];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 10, top: 10),
+          child: Text(
+            "Size:",
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+        ),
+        SizedBox(
+          height: 58,
+          child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.antiAlias,
+              itemCount: sizes.length,
+              itemBuilder: (context, i) {
+                final size = sizes[i];
 
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
-              child: GestureDetector(
-                onTap: () {
-                  setSelectedSize(size);
-                },
-                child: Chip(
-                  label: Text("$size"),
-                  backgroundColor: size == selectedSize
-                      ? Theme.of(context).colorScheme.primary
-                      : Colors.white,
-                ),
-              ),
-            );
-          }),
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      setSelectedSize(size);
+                    },
+                    child: Chip(
+                      label: Text("$size"),
+                      backgroundColor: size == selectedSize
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.white,
+                    ),
+                  ),
+                );
+              }),
+        ),
+      ],
     );
   }
 }

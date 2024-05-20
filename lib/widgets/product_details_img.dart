@@ -11,7 +11,7 @@ class ProductDetailsImg extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Image.asset(
         imageUrl,
-        fit: BoxFit.contain,
+        height: 250,
         semanticLabel: "picture of shoes",
         filterQuality: FilterQuality.medium,
       ),

@@ -42,7 +42,7 @@ class ProductDetailsBtn extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(5),
       ));
     } else {
       context
@@ -64,7 +64,7 @@ class ProductDetailsBtn extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
         ),
-        padding: const EdgeInsets.all(4),
+        padding: const EdgeInsets.all(5),
       ));
     }
   }
@@ -72,11 +72,11 @@ class ProductDetailsBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.only(left: 15, top: 15, right: 15),
       child: isProductInCart(context)
           ? ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+                fixedSize: const Size(400, 50),
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 padding: const EdgeInsets.all(12),
               ),
@@ -90,10 +90,11 @@ class ProductDetailsBtn extends StatelessWidget {
                 "Added To Cart",
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
-              onPressed: null)
+              onPressed: null,
+            )
           : ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
+                fixedSize: const Size(400, 50),
                 backgroundColor: Theme.of(context).colorScheme.primary,
                 padding: const EdgeInsets.all(12),
               ),

@@ -1,4 +1,4 @@
-const sizes = [36, 38, 40, 42, 44, 46, 48];
+const sizes = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
 
 const products = [
   {
@@ -11,7 +11,7 @@ const products = [
   },
   {
     'id': 'a876b96811bf',
-    'title': 'Adidas Shoes',
+    'title': 'Yeezy Adidas Shoes',
     'price': 120.12,
     'imageUrl': 'assets/images/shoes_2.png',
     'company': 'Adidas',

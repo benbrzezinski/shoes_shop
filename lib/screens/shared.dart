@@ -55,9 +55,7 @@ class _SharedState extends State<Shared> {
         selectedFontSize: 0,
         unselectedFontSize: 0,
         currentIndex: currentPage,
-        onTap: (value) {
-          setCurrentPage(value);
-        },
+        onTap: setCurrentPage,
       ),
     );
   }
